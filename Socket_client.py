@@ -9,7 +9,11 @@ one_time = 1
 
 def reception(c):
 	while True:
-		print(c.recv(1024))
+		save_data = c.recv(200000)
+		print(save_data)
+		f = open('file_path.txt','ab+')
+		f.write(save_data)
+		f.close()
 
 def sending(c):
 	while True:
